@@ -1,3 +1,4 @@
+import usuariosRoutes from "../../routes/usuarios.routes.js";
 import User from "./User.js";
 
 class UsersRepository {
@@ -8,6 +9,14 @@ class UsersRepository {
     getAllUsers() {
         return this.users;
     }
+
+AddUser(name, email, password) {
+    const newUser = new User(name, email, password);
+    this.users.push(newUser);
+
+    return newUser;
+    }
 }
+
 
 export default UsersRepository;

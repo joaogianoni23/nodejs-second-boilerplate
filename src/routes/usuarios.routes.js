@@ -15,4 +15,16 @@ usuariosRoutes.get("/", (req, res) => {
     });
 });
 
+
+usuariosRoutes.post("/", (req, res) => {
+    const { name, email, password } = req.body;
+
+    const usuario = usersRepository.AddUser(name, email, password);
+
+    return res.status(201).json({
+        message: "Usuário cadastrado com sucesso!",
+        usuario,
+    });
+});
+
 export default usuariosRoutes;
